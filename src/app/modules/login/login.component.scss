@@ -1,0 +1,100 @@
+$login-card-width: 500px;
+
+.login-card {
+    background: #ffffff;
+    width: $login-card-width;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    border: none;
+    border-radius: 10px;
+
+    -webkit-box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.69);
+    -moz-box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.69);
+    box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.69);
+}
+
+.login-card-content {
+    width: 100%;
+    height: auto;
+
+    position: relative;
+}
+
+@media (max-width: $login-card-width) {
+    .login-card {
+        width: 100%;
+        min-width: 350px;
+    }
+}
+
+.login-title-container {
+    width: 100%;
+    height: 70px;
+    margin-top: 30px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.little-fill {
+    height: 100%;
+    width: 10px;
+}
+
+.login-title {
+    margin-left: 40px;
+    font-size: 3rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-button-container {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: 0;
+    right: -60px;
+    border: none;
+    border-radius: 60px;
+    transition: 0.1s all ease;
+    cursor: pointer;
+    text-align: center;
+    z-index: 2;
+
+    &:hover {
+        transform: scale(1.1);
+        -webkit-box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.69);
+        -moz-box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.69);
+        box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.69);
+    }
+
+    img {
+        height: 70px;
+        width: auto;
+        margin-left: 35px;
+        margin-top: 25px;
+        display: block;
+    }
+}
+
+.login-form-container {
+    width: 80%;
+    height: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+        margin-bottom: 30px;
+    }
+}
