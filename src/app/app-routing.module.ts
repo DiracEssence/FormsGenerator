@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-
 
 const routes: Routes = [
   { path: "", loadChildren: () => import('./modules/main/main.module').then(m => m.MainModule) },
-  { path: "login", loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule) },
-  { path: "register", loadChildren: () => import('./modules/register/register.module').then(m => m.RegisterModule) },
+  { path: "login", loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule), data: { animation: 'LoginPage' } },
+  { path: "register", loadChildren: () => import('./modules/register/register.module').then(m => m.RegisterModule), data: { animation: 'RegisterPage' } },
   { path: "**", redirectTo: '/', pathMatch: 'full' }
 ];
 
