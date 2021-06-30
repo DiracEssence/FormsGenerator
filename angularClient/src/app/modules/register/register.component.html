@@ -13,26 +13,47 @@
                     <img style="margin-left: 30px;" src="/assets/images/icons/user.svg" >
                 </div>
     
-                <div class="central-form-container">
+                <form [formGroup]="registerForm" class="central-form-container">
                     <div class="input-container">
                         <label>Email</label>
-                        <input class="soft-input" type="text" >
+                        <input formControlName="email" class="soft-input" type="text" >
+                        <div class="error-messages">
+                            <p *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.required" >Email required</p>
+                            <p *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.email" >Invalid email format</p>
+                        </div>
                     </div>
                     <div class="input-container">
                         <label>Username</label>
-                        <input class="soft-input" type="text" >
+                        <input formControlName="username" class="soft-input" type="text" >
+                        <div class="error-messages">
+                            <p *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.errors?.required" >Username required</p>
+                        </div>
                     </div>
                     <div class="input-container">
                         <label>Password</label>
-                        <input class="soft-input" type="password" >
+                        <input formControlName="password" class="soft-input" type="password" >
+                        <div class="error-messages">
+                            <p *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.required" >Password required</p>
+                        </div>
                     </div>
                     <div class="input-container">
                         <label>Confirm password</label>
-                        <input class="soft-input" type="password" >
+                        <input formControlName="passwordConfirmation" class="soft-input" type="password" >
+                        <div class="error-messages">
+                            <p *ngIf="registerForm.get('passwordConfirmation')?.touched && registerForm.get('passwordConfirmation')?.errors?.required" >Confirm password required</p>
+                        </div>
                     </div>
     
-                    <button class="button-send bg-blue f-white">Register</button>
-                </div>
+                    <button [disabled]="!registerForm.valid" (click)="registerUser()" class="button-send bg-blue f-white">Register</button>
+
+                    <div class="loading-container" *ngIf="savingUser">
+                        <div class="spinner">
+                            <div class="double-bounce1"></div>
+                            <div class="double-bounce2"></div>
+                          </div>
+                        <h4>Saving user...</h4>
+                    </div>
+                </form>
     
             </div>
         </div>

@@ -51,11 +51,15 @@ C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\ros
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\roslyn\VBCSCompiler.exe
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\Antlr3.Runtime.dll
+C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\EntityFramework.dll
+C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\EntityFramework.SqlServer.dll
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\Newtonsoft.Json.dll
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\System.Net.Http.Formatting.dll
+C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\System.Web.Cors.dll
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\System.Web.Helpers.dll
+C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\System.Web.Http.Cors.dll
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\System.Web.Http.dll
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\System.Web.Http.WebHost.dll
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\System.Web.Mvc.dll
@@ -65,6 +69,9 @@ C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\Sys
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\System.Web.WebPages.dll
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\System.Web.WebPages.Razor.dll
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\WebGrease.dll
+C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\EntityFramework.xml
+C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\EntityFramework.SqlServer.xml
+C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\System.Web.Http.Cors.xml
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\Newtonsoft.Json.xml
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\System.Net.Http.Formatting.xml
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\System.Web.Helpers.xml
@@ -88,7 +95,6 @@ C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\es\
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\es\System.Web.WebPages.resources.dll
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\obj\Debug\DotNETWebApi.csprojAssemblyReference.cache
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\obj\Debug\DotNETWebApi.csproj.CoreCompileInputs.cache
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\obj\Debug\DotNETWebApi.csproj.CopyComplete
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\obj\Debug\DotNETWebApi.dll

@@ -16,19 +16,33 @@
                     <img style="margin-left: 35px;" src="/assets/images/icons/register.svg" >
                 </div>
     
-                <div class="central-form-container">
+                <form [formGroup]="loginForm" class="central-form-container">
                     <div class="input-container">
                         <label>Username</label>
-                        <input class="soft-input" type="text" >
+                        <input formControlName="username" class="soft-input" type="text" >
+                        <div class="error-messages">
+                            <p *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.required" >Username required</p>
+                        </div>
                     </div>
                     <div class="input-container">
                         <label>Password</label>
-                        <input class="soft-input" type="password" >
+                        <input formControlName="password" class="soft-input" type="password" >
+                        <div class="error-messages">
+                            <p *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.required" >Password required</p>
+                        </div>
                     </div>
     
-                    <button class="button-send bg-blue f-white">Log In</button>
+                    <button [disabled]="!loginForm.valid" (click)="logIn()" class="button-send bg-blue f-white">Log In</button>
                     <a href="" class="link-label">Forgot your password?</a>
-                </div>
+
+                    <div class="loading-container" *ngIf="loggingIn">
+                        <div class="spinner">
+                            <div class="double-bounce1"></div>
+                            <div class="double-bounce2"></div>
+                          </div>
+                        <h4>Logging in...</h4>
+                    </div>
+                </form>
     
             </div>
         </div>

@@ -1,11 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
-/* COLOR VARIABLES */
-$color-blue: #2980B9;
-$color-white: #ffffff;
-$color-titles: #666666;
-$color-input-text: rgb(92, 92, 92);
-$color-label-text: rgb(145, 145, 145);
+@import "./vars.scss";
 
 /* SIZE VARIABLES */
 $central-card-width: 500px;
@@ -13,7 +7,7 @@ $central-card-width: 500px;
 body {
     background: #e9e9e9;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif !important;
 }
 
 * {
@@ -29,10 +23,10 @@ div.full-screen-container {
 
 /* COLORS */
 .bg-blue {
-    background: $color-blue;
+    background: $color-green;
 }
 .f-blue {
-    color: $color-blue;
+    color: $color-green;
 }
 .f-white {
     color: $color-white;
@@ -50,12 +44,12 @@ input.soft-input {
     border-radius: 10px;
     padding-left: 15px;
     padding-right: 15px;
-    transition: 0.12s all ease-out;
+    transition: 0.12s all ease;
 
     &:focus {
         height: 45px;
         margin-top: 5px;
-        border-color: $color-blue;
+        border-color: $color-green;
         -webkit-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
         -moz-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
         box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
@@ -70,6 +64,10 @@ input.soft-input {
     label {
         font-size: 1.3rem;
         color: $color-label-text;
+    }
+
+    .error-messages {
+        color: red;
     }
 }
 
@@ -89,10 +87,18 @@ input.soft-input {
         -moz-box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.69);
         box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.69);
     }
+
+    &:disabled {
+        opacity: 0.6;
+
+        &:hover {
+            transform: scale(1) !important;
+        }
+    }
 }
 
 .link-label {
-    color: $color-blue;
+    color: $color-green;
 }
 
 
@@ -211,4 +217,70 @@ input.soft-input {
     font-size: 3rem;
     font-weight: normal;
     margin: 0;
+}
+
+.spinner-border {
+    color: $color-green;
+}
+
+.loading-container {
+    padding: 5px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+
+    * {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+        font-weight: bolder;
+        color: rgb(120, 120, 120);
+    }
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+  
+    position: relative;
+}
+  
+.double-bounce1, .double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: $color-green;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+}
+  
+.double-bounce2 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+  
+@-webkit-keyframes sk-bounce {
+    0%, 100% { -webkit-transform: scale(0.0) }
+    50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+    0%, 100% { 
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    } 50% { 
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
 }
