@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DotNETWebApi.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -12,7 +13,9 @@ namespace DotNETWebApi
         {
             var corsAttr = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(corsAttr);
+
             // Configuración y servicios de API web
+            config.MessageHandlers.Add(new TokenValidationHandler());
 
             // Rutas de API web
             config.MapHttpAttributeRoutes();

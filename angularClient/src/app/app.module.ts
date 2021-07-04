@@ -4,6 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from "@angular/common/http";
+import { SessionService } from "./services/session.service";
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -13,9 +16,26 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    HttpClientModule,
+
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: getAuthToken,
+        allowedDomains: [],
+        disallowedRoutes: [],
+      },
+    })
+
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// get auth token
+function getAuthToken(): string | null {
+  return window.localStorage.getItem('auth-token');
+}

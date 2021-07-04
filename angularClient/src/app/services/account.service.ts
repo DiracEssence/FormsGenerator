@@ -4,6 +4,7 @@ import { CreateUser } from "../models/createUser";
 import { Observable } from 'rxjs';
 import { environment } from "../../environments/environment";
 import { User } from "../models/User";
+import { LoginResponse } from "../models/responses/loginResponse";
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,8 @@ export class AccountService {
     return this.http.post<string>(url, user);
   }
 
-  public login(user: CreateUser): Observable<User> {
+  public login(user: CreateUser): Observable<LoginResponse> {
     const url: string = this.apiUrl + 'Account/Login';
-    return this.http.post<User>(url, user);
+    return this.http.post<LoginResponse>(url, user);
   }
 }

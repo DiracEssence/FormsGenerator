@@ -99,3 +99,12 @@ C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\obj\Deb
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\obj\Debug\DotNETWebApi.csproj.CopyComplete
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\obj\Debug\DotNETWebApi.dll
 C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\obj\Debug\DotNETWebApi.pdb
+C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\CDT\Desktop\PORTAFOLIO\FormsGenerator\DotNETWebApi\DotNETWebApi\obj\Debug\DotNETWebApi.csprojAssemblyReference.cache

@@ -23,10 +23,10 @@ div.full-screen-container {
 
 /* COLORS */
 .bg-blue {
-    background: $color-green;
+    background: $color-main;
 }
 .f-blue {
-    color: $color-green;
+    color: $color-main;
 }
 .f-white {
     color: $color-white;
@@ -49,7 +49,7 @@ input.soft-input {
     &:focus {
         height: 45px;
         margin-top: 5px;
-        border-color: $color-green;
+        border-color: $color-main;
         -webkit-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
         -moz-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
         box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
@@ -98,7 +98,7 @@ input.soft-input {
 }
 
 .link-label {
-    color: $color-green;
+    color: $color-main;
 }
 
 
@@ -220,7 +220,7 @@ input.soft-input {
 }
 
 .spinner-border {
-    color: $color-green;
+    color: $color-main;
 }
 
 .loading-container {
@@ -255,7 +255,7 @@ input.soft-input {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background-color: $color-green;
+    background-color: $color-main;
     opacity: 0.6;
     position: absolute;
     top: 0;

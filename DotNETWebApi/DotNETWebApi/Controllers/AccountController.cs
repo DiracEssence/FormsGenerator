@@ -9,9 +9,11 @@ using DotNETWebApi.Models.FormsGeneratorDB;
 using DotNETWebApi.Helpers;
 using System.Web.Http.Cors;
 using DotNETWebApi.Models.Responses;
+using System.Threading;
 
 namespace DotNETWebApi.Controllers
 {
+    [AllowAnonymous]
     public class AccountController : ApiController
     {
 
@@ -76,7 +78,7 @@ namespace DotNETWebApi.Controllers
                 User user = accountHelper.GetUserByUsername(userRequest.Username);
 
                 if (user == null)
-                {
+                {fix
                     return BadRequest("No user was found with that username");
                 }
 
@@ -85,8 +87,11 @@ namespace DotNETWebApi.Controllers
                 if (PasswordHasher.ByteArrayCompare(hashedPassword, user.Password))
                 {
                     UserModel model = new UserModel(user);
+                    string token = TokenGenerator.GenerateTokenJwt(user);
 
-                    return Ok(model);
+                    LoginResponse response = new LoginResponse(model, token);
+
+                    return Ok(response);
                 }
                 else
                 {
@@ -98,6 +103,13 @@ namespace DotNETWebApi.Controllers
             {
                 return BadRequest("something failed when trying to login");
             }
+        }
+
+        [HttpGet]
+        public IHttpActionResult IsAuthenticated()
+        {
+            // var identity = Thread.CurrentPrincipal.Identity;
+            return Ok(true);
         }
     }
 }
