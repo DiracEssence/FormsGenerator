@@ -78,7 +78,7 @@ namespace DotNETWebApi.Controllers
                 User user = accountHelper.GetUserByUsername(userRequest.Username);
 
                 if (user == null)
-                {fix
+                {
                     return BadRequest("No user was found with that username");
                 }
 
