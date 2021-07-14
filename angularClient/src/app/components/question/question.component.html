@@ -1,0 +1,47 @@
+<div class="question">
+    
+    <div class="question-label-container">
+        <input class="question-title" type="text" [ngModel]="question?.question">
+        <button class="question-edit-button">
+            <img class="navbar-icon" src="/assets/images/icons/pen-icon.svg" >
+
+            <div class="question-edit-popover">
+                <h3>Question types</h3>
+                <div class="question-radio">
+                    <input (change)="changeQuestionType($event)" checked type="radio" id="question_type_text_{{questionIndex}}" name="question_type_{{questionIndex}}" value="Text" />
+                    <label for="question_type_text_{{questionIndex}}">Text</label>
+                </div>
+                <div class="question-radio">
+                    <input (change)="changeQuestionType($event)" type="radio" id="question_type_true_or_false_{{questionIndex}}" name="question_type_{{questionIndex}}" value="TrueOrFalse" />
+                    <label for="question_type_true_or_false_{{questionIndex}}">True or false</label>
+                </div>
+                <div class="question-radio">
+                    <input (change)="changeQuestionType($event)" type="radio" id="question_type_multiplce_choice_{{questionIndex}}" name="question_type_{{questionIndex}}" value="MultipleChoice" />
+                    <label for="question_type_multiplce_choice_{{questionIndex}}">Multiple choice</label>
+                </div>
+            </div>
+        </button>
+    </div>
+
+    <input *ngIf="question?.questionType == 1" type="text" class="soft-input">
+
+    <div *ngIf="question?.questionType == 2" class="question-radios-container">
+        <div class="question-radio">
+            <input type="radio" id="question_true_{{questionIndex}}" name="question_true_false_{{questionIndex}}" value="true" />
+            <label for="question_true_{{questionIndex}}">True</label>
+        </div>
+        <div class="question-radio">
+            <input type="radio" id="question_false_{{questionIndex}}" name="question_true_false_{{questionIndex}}" value="false" />
+            <label for="question_false_{{questionIndex}}">False</label>
+        </div>
+    </div>
+
+    <div *ngIf="question?.questionType == 3" class="question-radios-container">
+        <div *ngFor="let choice of question?.choices; let choiceIdx = index" class="question-radio">
+            <input type="radio" id="question_{{questionIndex}}_choice_{{choiceIdx}}" name="question_{{questionIndex}}" value="true" />
+            <input class="question-choice" type="text" [(ngModel)]="choice.choice" />
+        </div>
+        <button (click)="addChoice()" class="add-choice-button">+ Add choice</button>
+    </div>
+
+</div>

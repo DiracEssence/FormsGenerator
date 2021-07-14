@@ -24,7 +24,6 @@ namespace DotNETWebApi.Controllers
 
             // create a claimsIdentity
             List<Claim> claims = new List<Claim>();
-            claims.Add(new Claim("username", user.Username));
             claims.Add(new Claim("idUser", user.Id.ToString()));
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims);
 

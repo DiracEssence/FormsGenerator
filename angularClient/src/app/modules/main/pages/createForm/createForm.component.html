@@ -1,0 +1,7 @@
+<h3>CREATE FORM</h3>
+
+<div class="questions-container">
+    <app-question *ngFor="let questionElement of questions; let i = index" [question]="questionElement" [questionIndex]="i"></app-question>
+</div>
+
+<button (click)="addQuestion()" class="add-question-button" style="margin-top: 20px;">+ Add choice</button>

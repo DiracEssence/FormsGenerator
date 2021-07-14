@@ -6,9 +6,11 @@ import { LoginComponent } from '../login/login.component';
 const routes: Routes = [
   { 
     path: '', component: MainComponent,
-    // children: [
-    //   { path: 'asd', component: LoginComponent }
-    // ]
+    children: [
+      { path: '', loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule) },
+      { path: 'Create', loadChildren: () => import('./pages/createForm/createForm.module').then(m => m.CreateFormModule) },
+      { path: 'YourForms', loadChildren: () => import('./pages/yourForms/yourForms.module').then(m => m.YourFormsModule) }
+    ]
   }
 ];
 

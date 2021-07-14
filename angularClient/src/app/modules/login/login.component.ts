@@ -44,11 +44,9 @@ export class LoginComponent implements OnInit {
 
       this.loggingIn = true;
       window.setTimeout(() => {
-        this.accountService.login(user).subscribe(
-          success => {
-            this.sessionService.saveToken(success.Token);
-            this.accountService.user = success.User;
-            this.toastrService.success(`Welcome ${this.accountService.user.Username}!`);
+        this.accountService.authorizeAndGetToken(user).subscribe(
+          token => {
+            this.sessionService.saveToken(token);
             this.router.navigate(['']);
             this.loggingIn = false;
           },

@@ -22,6 +22,10 @@ export class SessionService {
     return window.localStorage.getItem(tokenKey);
   }
 
+  public removeToken(): void {
+    window.localStorage.removeItem(tokenKey);
+  }
+
   public IsAuthenticated(): boolean {
     
     // const url: string = this.apiUrl + 'Account/IsAuthenticated';

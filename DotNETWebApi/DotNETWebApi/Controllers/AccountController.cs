@@ -10,6 +10,7 @@ using DotNETWebApi.Helpers;
 using System.Web.Http.Cors;
 using DotNETWebApi.Models.Responses;
 using System.Threading;
+using System.Security.Claims;
 
 namespace DotNETWebApi.Controllers
 {
@@ -106,10 +107,72 @@ namespace DotNETWebApi.Controllers
         }
 
         [HttpGet]
-        public IHttpActionResult IsAuthenticated()
+        [Authorize]
+        public IHttpActionResult GetUserByToken()
         {
-            // var identity = Thread.CurrentPrincipal.Identity;
-            return Ok(true);
+            var identity = (ClaimsPrincipal)Thread.CurrentPrincipal;
+            if (identity != null)
+            {
+                string idUserString = identity.Claims.FirstOrDefault(f => f.Type == "idUser").Value;
+                Guid idUser = Guid.Empty;
+                if (Guid.TryParse(idUserString, out idUser))
+                {
+                    AccountHelper accountHelper = new AccountHelper();
+                    User user = accountHelper.GetUserById(idUser);
+                    UserModel model = new UserModel(user);
+                    return Ok(model);
+                }
+                else
+                {
+                    return BadRequest("Without idUser in token");
+                }
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpPost]
+        public IHttpActionResult AuthorizeAndGetToken(CreateUser userRequest)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(userRequest.Username))
+                {
+                    return BadRequest("You must provide the username");
+                }
+                if (string.IsNullOrEmpty(userRequest.Password))
+                {
+                    return BadRequest("You must provide the password");
+                }
+
+                AccountHelper accountHelper = new AccountHelper();
+                User user = accountHelper.GetUserByUsername(userRequest.Username);
+
+                if (user == null)
+                {
+                    return BadRequest("No user was found with that username");
+                }
+
+                byte[] hashedPassword = PasswordHasher.HashPasswordWithSalt(userRequest.Password, user.Salt);
+
+                if (PasswordHasher.ByteArrayCompare(hashedPassword, user.Password))
+                {
+                    string token = TokenGenerator.GenerateTokenJwt(user);
+
+                    return Ok(token);
+                }
+                else
+                {
+                    return BadRequest("Invalid credentials");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("something failed when trying to login");
+            }
         }
     }
 }

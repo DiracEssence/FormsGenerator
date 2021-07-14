@@ -39,6 +39,12 @@ namespace DotNETWebApi.Helpers
             }
         }
 
+        public User GetUserById(Guid id)
+        {
+            User user = db.Users.FirstOrDefault(f => f.Id == id);
+            return user;
+        }
+
         public User GetUserByEmail(string email)
         {
             User user = db.Users.FirstOrDefault(f => f.Email == email);

@@ -1,11 +1,48 @@
-<div class="navbar-container">
-    <div class="navbar-left-options">
-        <img style="margin-left: 20px;" class="navbar-icon" src="/assets/images/icons/form-icon.svg" >
-        <h2>Forms Generator</h2>
+
+<div class="main-screen-wrapper">
+    <div class="navbar-container">
+        <div class="navbar-left-options">
+            <img style="margin-left: 20px;" class="navbar-icon" src="/assets/images/icons/form-icon.svg" >
+            <h2>Forms Generator</h2>
+        </div>
+        <div class="navbar-right-options">
+            <img class="navbar-icon" src="/assets/images/icons/circle-user-icon.svg" >
+    
+            <div class="navbar-right-menu">
+                <div class="navbar-right-item">
+                    <img style="margin-left: 10px" class="navbar-icon" src="/assets/images/icons/user-gray-icon.svg" >
+                    <h4>{{this.accountService.user.Username}}</h4>
+                </div>
+                <hr>
+                <div class="navbar-right-item" (click)="logout()">
+                    <img style="margin-left: 10px" class="navbar-icon" src="/assets/images/icons/exit-icon.svg" >
+                    <h4>Logout</h4>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="navbar-right-options">
-        <img style="margin-right: 20px;" class="navbar-icon" src="/assets/images/icons/circle-user-icon.svg" >
-        <h2>{{ accountService.user.Username }}</h2>
+
+    <!-- CONTAINER FOR SIDBAR AND CONTENT -->
+    <div class="sidebar-content-wrapper">
+        <div class="sidebar">
+
+            <div id="DashboardComponent" (click)="goToPage('')" class="sidebar-option" style="margin-top: 20px;">
+                <img style="margin-left: 10px" class="navbar-icon" src="/assets/images/icons/dashboard-icon.svg" >
+                <h3>Dashboard</h3>
+            </div>
+            <div id="CreateFormComponent" (click)="goToPage('Create')" class="sidebar-option">
+                <img style="margin-left: 10px" class="navbar-icon" src="/assets/images/icons/add-square-icon.svg" >
+                <h3>Create Form</h3>
+            </div>
+            <div id="YourFormsComponent" (click)="goToPage('YourForms')" class="sidebar-option">
+                <img style="margin-left: 10px" class="navbar-icon" src="/assets/images/icons/google-form-icon.svg" >
+                <h3>Your Forms</h3>
+            </div>
+
+        </div>
+        <div class="main-content">
+            <router-outlet (activate)="routeChanged($event)"></router-outlet>
+        </div>
     </div>
 </div>
-<!-- <router-outlet></router-outlet> -->
+
