@@ -16,7 +16,7 @@
                 <form [formGroup]="registerForm" class="central-form-container">
                     <div class="input-container">
                         <label>Email</label>
-                        <input formControlName="email" class="soft-input" type="text" >
+                        <input formControlName="email" class="soft-presentation-input" type="text" >
                         <div class="error-messages">
                             <p *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.required" >Email required</p>
                             <p *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.email" >Invalid email format</p>
@@ -24,21 +24,21 @@
                     </div>
                     <div class="input-container">
                         <label>Username</label>
-                        <input formControlName="username" class="soft-input" type="text" >
+                        <input formControlName="username" class="soft-presentation-input" type="text" >
                         <div class="error-messages">
                             <p *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.errors?.required" >Username required</p>
                         </div>
                     </div>
                     <div class="input-container">
                         <label>Password</label>
-                        <input formControlName="password" class="soft-input" type="password" >
+                        <input formControlName="password" class="soft-presentation-input" type="password" >
                         <div class="error-messages">
                             <p *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.required" >Password required</p>
                         </div>
                     </div>
                     <div class="input-container">
                         <label>Confirm password</label>
-                        <input formControlName="passwordConfirmation" class="soft-input" type="password" >
+                        <input formControlName="passwordConfirmation" class="soft-presentation-input" type="password" >
                         <div class="error-messages">
                             <p *ngIf="registerForm.get('passwordConfirmation')?.touched && registerForm.get('passwordConfirmation')?.errors?.required" >Confirm password required</p>
                         </div>

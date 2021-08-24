@@ -19,14 +19,14 @@
                 <form [formGroup]="loginForm" class="central-form-container">
                     <div class="input-container">
                         <label>Username</label>
-                        <input formControlName="username" class="soft-input" type="text" >
+                        <input formControlName="username" class="soft-presentation-input" type="text" >
                         <div class="error-messages">
                             <p *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.required" >Username required</p>
                         </div>
                     </div>
                     <div class="input-container">
                         <label>Password</label>
-                        <input formControlName="password" class="soft-input" type="password" >
+                        <input formControlName="password" class="soft-presentation-input" type="password" >
                         <div class="error-messages">
                             <p *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.required" >Password required</p>
                         </div>

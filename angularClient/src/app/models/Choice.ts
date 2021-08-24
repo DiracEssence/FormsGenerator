@@ -1,3 +1,3 @@
 export class Choice {
-    public choice: string | undefined;
+    public choice: string = "";
 }

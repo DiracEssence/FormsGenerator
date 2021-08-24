@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { QuestionTypesEnum } from "../../models/questionTypes";
 import { Question } from "../../models/Question";
 
@@ -10,14 +10,16 @@ import { Question } from "../../models/Question";
 export class QuestionComponent implements OnInit {
 
   @Input()
-  public question: Question | undefined;
+  public question: Question = new Question();
   @Input()
   public questionIndex: number = 0;
+
+  @Output() removeQuestion: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.questionIndex);
+    this.question!.order = this.questionIndex + 1;
   }
 
   changeQuestionType(event: any): void {
@@ -48,10 +50,33 @@ export class QuestionComponent implements OnInit {
 
   addChoice(): void {
     if (this.question != undefined) {
-      this.question.choices?.push({ choice: 'Type your choice' });
+      this.question.choices?.push({ choice: '' });
     }
-    console.log('Specific question:');
-    console.log(this.question);
+  }
+
+  sendRemoveQuestion(questionIdx: number): void {
+    this.removeQuestion.emit(questionIdx);
+  }
+
+  removeChoice(choiceIdx: number): void {
+    this.question!.choices!.splice(choiceIdx, 1);
+  }
+
+  pressEnterInChoice(choiceIdx: number): void {
+    if (choiceIdx == (this.question!.choices!.length - 1)) {
+
+      this.addChoice();
+      window.setTimeout(() => {
+        let lastChoice: HTMLElement | null = document.getElementById(`text-choice-${this.question!.choices!.length - 1}-question-${this.questionIndex}`);
+        lastChoice?.focus();
+      }, 100);
+
+    } else {
+
+      let nextChoice: HTMLElement | null = document.getElementById(`text-choice-${choiceIdx + 1}-question-${this.questionIndex}`);
+      nextChoice?.focus();
+
+    }
   }
 
 }

@@ -1,7 +1,8 @@
 <div class="question">
     
     <div class="question-label-container">
-        <input class="question-title" type="text" [ngModel]="question?.question">
+        <h3>{{question.order}}.- </h3>
+        <input placeholder="Type a question..." class="question-title" type="text" [(ngModel)]="question.question">
         <button class="question-edit-button">
             <img class="navbar-icon" src="/assets/images/icons/pen-icon.svg" >
 
@@ -21,9 +22,12 @@
                 </div>
             </div>
         </button>
+        <button class="remove-square-button" (click)='sendRemoveQuestion(questionIndex)'>
+            <img class="navbar-icon" src="/assets/images/icons/remove-icon.svg" >
+        </button>
     </div>
 
-    <input *ngIf="question?.questionType == 1" type="text" class="soft-input">
+    <input placeholder="Don't worry about this field..." *ngIf="question?.questionType == 1" type="text" class="soft-input">
 
     <div *ngIf="question?.questionType == 2" class="question-radios-container">
         <div class="question-radio">
@@ -39,7 +43,10 @@
     <div *ngIf="question?.questionType == 3" class="question-radios-container">
         <div *ngFor="let choice of question?.choices; let choiceIdx = index" class="question-radio">
             <input type="radio" id="question_{{questionIndex}}_choice_{{choiceIdx}}" name="question_{{questionIndex}}" value="true" />
-            <input class="question-choice" type="text" [(ngModel)]="choice.choice" />
+            <input (keyup.enter)="pressEnterInChoice(choiceIdx)" placeholder="Type a choice..." id="text-choice-{{choiceIdx}}-question-{{questionIndex}}" class="question-choice" type="text" [(ngModel)]="choice.choice" />
+            <button class="remove-square-button" (click)='removeChoice(choiceIdx)'>
+                <img class="navbar-icon" src="/assets/images/icons/remove-icon.svg" >
+            </button>
         </div>
         <button (click)="addChoice()" class="add-choice-button">+ Add choice</button>
     </div>

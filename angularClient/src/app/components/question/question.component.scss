@@ -9,28 +9,30 @@
     input.question-title {
         font-size: 1.2rem;
         color: $color-titles;
-        border: none;
-        background: $color-background;
+        background: white;
         width: auto;
         padding: 5px;
+        border: 1px solid rgb(170, 170, 170);
         border-radius: 8px;
 
         &:focus, &:hover {
-            background: $color-background-gray;
+            border-color: $color-main;
         }
     }
 
     input.question-choice {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        font-weight: normal;
         color: $color-titles;
-        border: none;
-        background: $color-background-gray;
+        border: 1px solid rgb(170, 170, 170);
+        background: $color-background;
         width: auto;
+        min-width: 250px;
         padding: 5px;
         border-radius: 8px;
 
         &:focus, &:hover {
-            background: $color-background;
+            border-color: $color-main;
         }
     }
 

@@ -33,7 +33,7 @@ div.full-screen-container {
 }
 
 /* INPUTS */
-input.soft-input {
+input.soft-presentation-input {
     height: 35px;
     margin-top: 10px;
     font-family: 'Roboto', sans-serif;
@@ -49,6 +49,47 @@ input.soft-input {
     &:focus {
         height: 45px;
         margin-top: 5px;
+        border-color: $color-main;
+        -webkit-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
+        -moz-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
+        box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
+    }
+}
+
+input.soft-input {
+    height: 30px;
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
+    color: $color-input-text;
+    border: 1px solid rgb(170, 170, 170);
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    transition: 0.12s all ease;
+
+    &:focus {
+        border-color: $color-main;
+        -webkit-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
+        -moz-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
+        box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
+    }
+}
+
+textarea.soft-input {
+    height: 30px;
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
+    color: $color-input-text;
+    border: 1px solid rgb(170, 170, 170);
+    border-radius: 10px;
+    padding: 15px;
+    transition: 0.12s all ease;
+
+    &:focus {
         border-color: $color-main;
         -webkit-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
         -moz-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
@@ -306,5 +347,122 @@ input.soft-input {
     }
     &:active {
         opacity: 0.8;
+    }
+}
+
+button.remove-square-button {
+    height: 30px;
+    width: 30px;
+    background-color: $color-red;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+
+    img {
+        width: 90%;
+        margin: auto;
+        transform: translateY(8%);
+    }
+}
+
+.action-section {
+    position: fixed;
+    bottom: 0;
+    height: 80px;
+    width: calc(100% - 270px);
+    background: $color-background;
+    border-top: 1px solid rgb(199, 199, 199);
+    -webkit-box-shadow: 0px -3px 5px -4px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px -3px 5px -4px rgba(0,0,0,0.25);
+    box-shadow: 0px -3px 5px -4px rgba(0,0,0,0.25);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.content-frame-with-actions {
+    height: calc(100% - 120px);
+    width: calc(100% - 40px);
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+.save-button {
+    height: 50px;
+    width: 220px;
+    color: white;
+    font-size: 1.2rem;
+    background: $color-main;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    transition: 0.1s ease-in-out;
+
+    &:hover {
+        -webkit-box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.69);
+        -moz-box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.69);
+        box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.69);
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: default;
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    img {
+        height: 30px;
+    }
+}
+
+.secondary-button {
+    height: 50px;
+    width: 220px;
+    color: $color-main;
+    font-size: 1.2rem;
+    background: $color-background;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 10px;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    transition: 0.1s ease-in-out;
+
+    &:hover {
+        -webkit-box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.69);
+        -moz-box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.69);
+        box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.69);
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: default;
+    }
+
+    &:active {
+        opacity: 0.5;
+        transform: scale(0.95);
+    }
+
+    img {
+        height: 30px;
     }
 }
