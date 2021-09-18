@@ -8,6 +8,8 @@ import { SessionService } from 'src/app/services/session.service';
 import { Question } from "../../../../models/Question";
 import { QuestionTypesEnum } from 'src/app/models/questionTypes';
 import { Choice } from 'src/app/models/Choice';
+import { FormsService } from "../../../../services/forms.service";
+import { FullForm } from 'src/app/models/requests/FullForm';
 
 @Component({
   selector: 'app-createForm',
@@ -23,10 +25,7 @@ export class CreateFormComponent implements OnInit {
   public disableSaveBtn: boolean = false;
   public disableClearBtn: boolean = false;
 
-  constructor(private toastrService: ToastrService)
-  {
-
-  }
+  constructor(private toastrService: ToastrService, private formsService: FormsService) { }
 
   ngOnInit(): void {
     let questionTest1 = new Question();
@@ -59,6 +58,8 @@ export class CreateFormComponent implements OnInit {
     this.questions = [
       { question: '', questionType: QuestionTypesEnum.Text, choices: [], order: 1 }
     ];
+    this.formName = '';
+    this.formDescription = '';
   }
 
   saveQuestions() {
@@ -98,8 +99,20 @@ export class CreateFormComponent implements OnInit {
       }
     }
 
-    // all fine
-    console.log(this.questions);
+    // all good
+    let form = new FullForm();
+    form.formName = this.formName;
+    form.formDescription = this.formDescription;
+    form.questions = this.questions;
+
+    this.formsService.CreateForm(form).subscribe(
+      success => {
+
+      },
+      error => {
+
+      }
+    );
   }
 
 }

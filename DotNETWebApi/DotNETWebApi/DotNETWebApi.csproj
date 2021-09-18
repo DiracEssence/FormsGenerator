@@ -182,6 +182,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TokenGenerator.cs" />
     <Compile Include="Controllers\TokenValidationHandler.cs" />
@@ -190,7 +191,9 @@
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\AccountHelper.cs" />
+    <Compile Include="Helpers\FormsHelper.cs" />
     <Compile Include="Helpers\PasswordHasher.cs" />
+    <Compile Include="Models\Choice.cs" />
     <Compile Include="Models\FormsGeneratorDB\FormsGeneratorDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -209,7 +212,10 @@
     <Compile Include="Models\FormsGeneratorDB\User.cs">
       <DependentUpon>FormsGeneratorDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\QuestionTypesEnum.cs" />
     <Compile Include="Models\Requests\CreateUser.cs" />
+    <Compile Include="Models\Requests\FullForm.cs" />
     <Compile Include="Models\Responses\LoginResponse.cs" />
     <Compile Include="Models\Responses\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -39,7 +39,7 @@ export class AccountService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.sessionService.getToken()}`
-    })
+    });
 
     return this.http.get<User>(url, { headers: headers });
   }
