@@ -9,6 +9,6 @@ namespace DotNETWebApi.Models.Requests
     {
         public string formName { get; set; }
         public string formDescription { get; set; }
-        public List<Question> questions { get; set; }
+        public List<QuestionModel> questions { get; set; }
     }
 }

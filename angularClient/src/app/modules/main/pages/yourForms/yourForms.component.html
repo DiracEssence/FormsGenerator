@@ -1,1 +1,16 @@
-<h3>YOUR FORMS</h3>
+<div class="content-frame-with-actions">
+    <h2>YOUR FORMS</h2>
+
+    <div class="forms-preview">
+        <div *ngFor="let form of forms" class="form-preview">
+            <div class="form-preview-quick-info">
+                <h3>{{form.name}}</h3>
+                <h5>- {{form.questions.length}} questions</h5>
+            </div>
+            <hr>
+            <div class="form-preview-description">
+                <h4>{{form.description}}</h4>
+            </div>
+        </div>
+    </div>
+</div>

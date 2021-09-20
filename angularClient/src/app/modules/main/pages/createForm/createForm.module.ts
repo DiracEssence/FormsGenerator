@@ -5,20 +5,22 @@ import { CreateFormRoutingModule } from './createForm-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountService } from 'src/app/services/account.service';
-import { QuestionComponent } from "../../../../components/question/question.component";
 import { FormsService } from 'src/app/services/forms.service';
+import { QuestionModule } from "../../../../components/question/question.module";
+import { LoadingSpinnerModule } from "../../../../components/loading-spinner/loading-spinner.module";
 
 @NgModule({
   declarations: [
-    CreateFormComponent,
-    QuestionComponent
+    CreateFormComponent
   ],
   imports: [
     CommonModule,
     CreateFormRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    QuestionModule,
+    LoadingSpinnerModule
   ],
   providers: [
     AccountService,

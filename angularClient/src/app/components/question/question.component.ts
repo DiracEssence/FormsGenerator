@@ -50,7 +50,7 @@ export class QuestionComponent implements OnInit {
 
   addChoice(): void {
     if (this.question != undefined) {
-      this.question.choices?.push({ choice: '' });
+      this.question.choices?.push({ choice: '', order: 0 });
     }
   }
 

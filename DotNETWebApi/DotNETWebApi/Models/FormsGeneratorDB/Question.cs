@@ -12,24 +12,26 @@ namespace DotNETWebApi.Models.FormsGeneratorDB
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Question
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Question()
         {
-            this.Forms = new HashSet<Form>();
-            this.FormsAnswereds = new HashSet<FormsAnswered>();
+            this.AnsweredQuestions = new HashSet<AnsweredQuestion>();
+            this.Choices = new HashSet<Choice>();
         }
     
         public System.Guid Id { get; set; }
-        public string Username { get; set; }
-        public string Email { get; set; }
-        public byte[] Password { get; set; }
-        public byte[] Salt { get; set; }
+        public System.Guid IdForm { get; set; }
+        public string QuestionText { get; set; }
+        public int IdQuestionType { get; set; }
+        public int Order { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Form> Forms { get; set; }
+        public virtual ICollection<AnsweredQuestion> AnsweredQuestions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FormsAnswered> FormsAnswereds { get; set; }
+        public virtual ICollection<Choice> Choices { get; set; }
+        public virtual Form Form { get; set; }
+        public virtual QuestionType QuestionType { get; set; }
     }
 }

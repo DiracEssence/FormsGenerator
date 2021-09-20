@@ -39,7 +39,7 @@ CREATE TABLE Questions
 (
 	Id uniqueidentifier not null primary key,
 	IdForm uniqueidentifier not null foreign key references Forms(Id),
-	Question varchar(1024) not null,
+	QuestionText varchar(1024) not null,
 	IdQuestionType int not null foreign key references QuestionTypes(Id),
 	[Order] int not null
 )
@@ -49,11 +49,10 @@ CREATE TABLE Choices
 (
 	Id uniqueidentifier not null primary key,
 	IdQuestion uniqueidentifier not null foreign key references Questions(Id),
-	Choice varchar(512) not null,
+	ChoiceText varchar(512) not null,
 	[Order] int not null
 )
 --DROP TABLE Choices;
-
 
 -- CREATE TABLES FOR FORMS ANSWERED
 
@@ -65,6 +64,7 @@ CREATE TABLE FormsAnswered
 	Finished bit not null,
 	[AnswerDate] datetime not null
 )
+--DROP TABLE FormsAnswered;
 
 CREATE TABLE AnsweredQuestions
 (
@@ -73,3 +73,4 @@ CREATE TABLE AnsweredQuestions
 	Answer varchar(2048),
 	QuestionAnswered varchar(1024), -- this field is for prevent that the User answer a question and then the creator change the text to create confusion's
 )
+--DROP TABLE AnsweredQuestions;

@@ -3,16 +3,16 @@
     <div class="central-vertical-field">
 
         <h1 class="soft-title" style="margin-top: 50px;">Forms Generator</h1>
-        <p style="text-align: center;">Writed by <span class="f-blue"> &lt;/&gt; Alejandro Peña López</span></p>
+        <p style="text-align: center;" class="font-color-white">Developed by <span class="font-color-secondary"> &lt;/&gt; </span><span class="font-color-primary"> Alejandro Peña López</span></p>
 
         <div class="central-card" style="margin-top: 30px;">
             <div class="central-card-content">
                 <div class="central-title-container">
-                    <div class="little-fill bg-blue"></div>
-                    <div class="central-title f-blue">LOGIN</div>
+                    <div class="little-fill bg-color-primary"></div>
+                    <div class="central-title font-color-white">LOGIN</div>
                 </div>
         
-                <div (click)="goToPage('register')" class="floating-circle-button-container bg-blue">
+                <div (click)="goToPage('register')" class="floating-circle-button-container bg-color-primary">
                     <img style="margin-left: 35px;" src="/assets/images/icons/register.svg" >
                 </div>
     
@@ -21,27 +21,21 @@
                         <label>Username</label>
                         <input formControlName="username" class="soft-presentation-input" type="text" >
                         <div class="error-messages">
-                            <p *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.required" >Username required</p>
+                            <p class="font-color-red" *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.required" >Username required</p>
                         </div>
                     </div>
                     <div class="input-container">
                         <label>Password</label>
                         <input formControlName="password" class="soft-presentation-input" type="password" >
                         <div class="error-messages">
-                            <p *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.required" >Password required</p>
+                            <p class="font-color-red" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.required" >Password required</p>
                         </div>
                     </div>
     
-                    <button [disabled]="!loginForm.valid" (click)="logIn()" class="button-send bg-blue f-white">Log In</button>
+                    <button [disabled]="!loginForm.valid" (click)="logIn()" class="button-send bg-color-primary f-white">Log In</button>
                     <a href="" class="link-label">Forgot your password?</a>
-
-                    <div class="loading-container" *ngIf="loggingIn">
-                        <div class="spinner">
-                            <div class="double-bounce1"></div>
-                            <div class="double-bounce2"></div>
-                          </div>
-                        <h4>Logging in...</h4>
-                    </div>
+                    
+                    <app-loading-spinner *ngIf="loggingIn" [text]="'Logging in...'"></app-loading-spinner>
                 </form>
     
             </div>

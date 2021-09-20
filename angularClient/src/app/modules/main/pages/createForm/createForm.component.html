@@ -26,7 +26,8 @@
         <h4>Save form</h4>
     </button>
     <button (click)="cleanAllQuestions()" class="secondary-button" [disabled]="disableClearBtn" >
-        <img class="navbar-icon" src="/assets/images/icons/blue-clean-icon.svg" >
+        <img class="navbar-icon" src="/assets/images/icons/white-clean-icon.svg" >
         <h4>Clean form</h4>
     </button>
+    <app-loading-spinner *ngIf="savingForm" [text]="'Saving form...'"></app-loading-spinner>
 </div>

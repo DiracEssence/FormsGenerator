@@ -1,0 +1,36 @@
+@import '../../../../../vars.scss';
+
+.forms-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .form-preview {
+        height: auto;
+        width: 100%;
+        background: $color-gray;
+        border-radius: 6px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .form-preview-quick-info {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            padding-left: 15px;
+        }
+
+        .form-preview-description {
+            padding-left: 15px;
+        }
+    }
+
+    hr {
+        width: auto;
+        margin: 0 15px;
+        color: $color-soft-white;
+        opacity: 0.5;
+    }
+}

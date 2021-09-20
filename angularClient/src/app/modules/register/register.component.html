@@ -5,11 +5,11 @@
         <div class="central-card" style="margin-top: 70px;">
             <div class="central-card-content">
                 <div class="central-title-container">
-                    <div class="little-fill bg-blue"></div>
-                    <div class="central-title f-blue">REGISTER</div>
+                    <div class="little-fill bg-color-primary"></div>
+                    <div class="central-title">REGISTER</div>
                 </div>
         
-                <div (click)="goToPage('login')" class="floating-circle-button-container bg-blue">
+                <div (click)="goToPage('login')" class="floating-circle-button-container bg-color-primary">
                     <img style="margin-left: 30px;" src="/assets/images/icons/user.svg" >
                 </div>
     
@@ -18,41 +18,35 @@
                         <label>Email</label>
                         <input formControlName="email" class="soft-presentation-input" type="text" >
                         <div class="error-messages">
-                            <p *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.required" >Email required</p>
-                            <p *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.email" >Invalid email format</p>
+                            <p class="font-color-red" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.required" >Email required</p>
+                            <p class="font-color-red" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.email" >Invalid email format</p>
                         </div>
                     </div>
                     <div class="input-container">
                         <label>Username</label>
                         <input formControlName="username" class="soft-presentation-input" type="text" >
                         <div class="error-messages">
-                            <p *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.errors?.required" >Username required</p>
+                            <p class="font-color-red" *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.errors?.required" >Username required</p>
                         </div>
                     </div>
                     <div class="input-container">
                         <label>Password</label>
                         <input formControlName="password" class="soft-presentation-input" type="password" >
                         <div class="error-messages">
-                            <p *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.required" >Password required</p>
+                            <p class="font-color-red" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.required" >Password required</p>
                         </div>
                     </div>
                     <div class="input-container">
                         <label>Confirm password</label>
                         <input formControlName="passwordConfirmation" class="soft-presentation-input" type="password" >
                         <div class="error-messages">
-                            <p *ngIf="registerForm.get('passwordConfirmation')?.touched && registerForm.get('passwordConfirmation')?.errors?.required" >Confirm password required</p>
+                            <p class="font-color-red" *ngIf="registerForm.get('passwordConfirmation')?.touched && registerForm.get('passwordConfirmation')?.errors?.required" >Confirm password required</p>
                         </div>
                     </div>
     
-                    <button [disabled]="!registerForm.valid" (click)="registerUser()" class="button-send bg-blue f-white">Register</button>
+                    <button [disabled]="!registerForm.valid" (click)="registerUser()" class="button-send bg-color-primary f-white">Register</button>
 
-                    <div class="loading-container" *ngIf="savingUser">
-                        <div class="spinner">
-                            <div class="double-bounce1"></div>
-                            <div class="double-bounce2"></div>
-                          </div>
-                        <h4>Saving user...</h4>
-                    </div>
+                    <app-loading-spinner *ngIf="savingUser" [text]="'Saving user...'"></app-loading-spinner>
                 </form>
     
             </div>

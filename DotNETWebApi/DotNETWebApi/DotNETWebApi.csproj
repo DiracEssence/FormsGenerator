@@ -193,7 +193,20 @@
     <Compile Include="Helpers\AccountHelper.cs" />
     <Compile Include="Helpers\FormsHelper.cs" />
     <Compile Include="Helpers\PasswordHasher.cs" />
-    <Compile Include="Models\Choice.cs" />
+    <Compile Include="Models\ChoiceModel.cs" />
+    <Compile Include="Models\FormModel.cs" />
+    <Compile Include="Models\FormsGeneratorDB\AnsweredQuestion.cs">
+      <DependentUpon>FormsGeneratorDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FormsGeneratorDB\Choice.cs">
+      <DependentUpon>FormsGeneratorDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FormsGeneratorDB\Form.cs">
+      <DependentUpon>FormsGeneratorDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FormsGeneratorDB\FormsAnswered.cs">
+      <DependentUpon>FormsGeneratorDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\FormsGeneratorDB\FormsGeneratorDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -209,10 +222,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FormsGeneratorDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\FormsGeneratorDB\Question.cs">
+      <DependentUpon>FormsGeneratorDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FormsGeneratorDB\QuestionType.cs">
+      <DependentUpon>FormsGeneratorDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\FormsGeneratorDB\User.cs">
       <DependentUpon>FormsGeneratorDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\QuestionModel.cs" />
     <Compile Include="Models\QuestionTypesEnum.cs" />
     <Compile Include="Models\Requests\CreateUser.cs" />
     <Compile Include="Models\Requests\FullForm.cs" />

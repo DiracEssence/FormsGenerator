@@ -1,6 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="FormsGeneratorDBModelStoreContainer" CdmEntityContainer="FormsGeneratorDBEntities">
+    <EntitySetMapping Name="AnsweredQuestions">
+      <EntityTypeMapping TypeName="FormsGeneratorDBModel.AnsweredQuestion">
+        <MappingFragment StoreEntitySet="AnsweredQuestions">
+          <ScalarProperty Name="QuestionAnswered" ColumnName="QuestionAnswered" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Choices">
+      <EntityTypeMapping TypeName="FormsGeneratorDBModel.Choice">
+        <MappingFragment StoreEntitySet="Choices">
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="ChoiceText" ColumnName="ChoiceText" />
+          <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Forms">
+      <EntityTypeMapping TypeName="FormsGeneratorDBModel.Form">
+        <MappingFragment StoreEntitySet="Forms">
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdCreator" ColumnName="IdCreator" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FormsAnswereds">
+      <EntityTypeMapping TypeName="FormsGeneratorDBModel.FormsAnswered">
+        <MappingFragment StoreEntitySet="FormsAnswered">
+          <ScalarProperty Name="AnswerDate" ColumnName="AnswerDate" />
+          <ScalarProperty Name="Finished" ColumnName="Finished" />
+          <ScalarProperty Name="IdForm" ColumnName="IdForm" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="FormsGeneratorDBModel.Question">
+        <MappingFragment StoreEntitySet="Questions">
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="IdQuestionType" ColumnName="IdQuestionType" />
+          <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+          <ScalarProperty Name="IdForm" ColumnName="IdForm" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionTypes">
+      <EntityTypeMapping TypeName="FormsGeneratorDBModel.QuestionType">
+        <MappingFragment StoreEntitySet="QuestionTypes">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="FormsGeneratorDBModel.User">
         <MappingFragment StoreEntitySet="Users">

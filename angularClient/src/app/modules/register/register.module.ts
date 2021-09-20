@@ -5,6 +5,7 @@ import { RegisterRoutingModule } from './register-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountService } from "../../services/account.service";
+import { LoadingSpinnerModule } from "../../components/loading-spinner/loading-spinner.module";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AccountService } from "../../services/account.service";
     RegisterRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    LoadingSpinnerModule
   ],
   providers: [
     AccountService

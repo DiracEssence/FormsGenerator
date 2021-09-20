@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { FullForm } from '../models/requests/FullForm';
 import { SessionService } from './session.service';
+import { Form } from "../models/Form";
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,15 @@ export class FormsService {
     });
 
     return this.http.post<void>(url, form, { headers: headers });
+  }
+
+  public GetFormsOfUser(): Observable<Form[]> {
+    const url: string = this.apiUrl + 'Forms/GetFormsOfUser';
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.sessionService.getToken()}`
+    });
+
+    return this.http.get<Form[]>(url, { headers: headers });
   }
 }

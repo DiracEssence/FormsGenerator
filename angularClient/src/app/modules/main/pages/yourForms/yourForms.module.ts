@@ -5,6 +5,7 @@ import { YourFormsRoutingModule } from './yourForms-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountService } from 'src/app/services/account.service';
+import { FormsService } from 'src/app/services/forms.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AccountService } from 'src/app/services/account.service';
     HttpClientModule
   ],
   providers: [
-    AccountService
+    AccountService,
+    FormsService
   ]
 })
 export class YourFormsModule { }

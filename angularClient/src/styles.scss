@@ -5,13 +5,36 @@
 $central-card-width: 500px;
 
 body {
-    background: $color-background-gray;
+    background: $color-background;
     margin: 0;
-    font-family: 'Roboto', sans-serif !important;
+    //font-family: 'Roboto', sans-serif !important;
+    font-family: 'Roboto Condensed', sans-serif !important;
 }
 
 * {
     outline: none;
+    color: $color-white;
+}
+
+//* SCROLL STYLES *//
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }
 
 div.full-screen-container {
@@ -21,15 +44,25 @@ div.full-screen-container {
     overflow: hidden;
 }
 
-/* COLORS */
-.bg-blue {
-    background: $color-main;
+/* COLOR HELPERS */
+.bg-color-primary {
+    background: $color-primary;
 }
-.f-blue {
-    color: $color-main;
+.bg-color-secondary {
+    background: $color-secondary;
 }
-.f-white {
+
+.font-color-primary {
+    color: $color-primary;
+}
+.font-color-secondary {
+    color: $color-secondary;
+}
+.font-color-white {
     color: $color-white;
+}
+.font-color-red {
+    color: $color-red;
 }
 
 /* INPUTS */
@@ -37,22 +70,25 @@ input.soft-presentation-input {
     height: 35px;
     margin-top: 10px;
     font-family: 'Roboto', sans-serif;
-    font-weight: bolder;
-    font-size: 1.5rem;
-    color: $color-input-text;
-    border: 1px solid rgb(170, 170, 170);
-    border-radius: 10px;
+    font-weight: normal;
+    font-size: 1.2rem;
+    color: $color-soft-white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(170, 170, 170, 0.568);
+    border-radius: 6px;
     padding-left: 15px;
     padding-right: 15px;
     transition: 0.12s all ease;
+    background-color: $color-black;
 
     &:focus {
-        height: 45px;
-        margin-top: 5px;
-        border-color: $color-main;
-        -webkit-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
-        -moz-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
-        box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
+        border-color: $color-primary;
+        -webkit-box-shadow: 0px 5px 6px 0px rgba(220,118,51,0.5);
+        -moz-box-shadow: 0px 5px 6px 0px rgba(220,118,51,0.5);
+        box-shadow: 0px 5px 6px 0px rgba(220,118,51,0.5);
+        transform: scale(1.05);
     }
 }
 
@@ -62,18 +98,16 @@ input.soft-input {
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
     font-size: 1rem;
-    color: $color-input-text;
-    border: 1px solid rgb(170, 170, 170);
-    border-radius: 10px;
+    color: $color-soft-white;
+    border: 1px solid $color-gray;
+    border-radius: 6px;
     padding-left: 15px;
     padding-right: 15px;
     transition: 0.12s all ease;
+    background-color: $color-black;
 
     &:focus {
-        border-color: $color-main;
-        -webkit-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
-        -moz-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
-        box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
+        border-color: $color-primary;
     }
 }
 
@@ -83,17 +117,15 @@ textarea.soft-input {
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
     font-size: 1rem;
-    color: $color-input-text;
-    border: 1px solid rgb(170, 170, 170);
-    border-radius: 10px;
+    color: $color-soft-white;
+    border: 1px solid $color-gray;
+    border-radius: 6px;
     padding: 15px;
     transition: 0.12s all ease;
+    background-color: $color-black;
 
     &:focus {
-        border-color: $color-main;
-        -webkit-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
-        -moz-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
-        box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);
+        border-color: $color-primary;
     }
 }
 
@@ -104,7 +136,8 @@ textarea.soft-input {
 
     label {
         font-size: 1.3rem;
-        color: $color-label-text;
+        color: $color-white;
+        opacity: 0.7;
     }
 
     .error-messages {
@@ -139,12 +172,12 @@ textarea.soft-input {
 }
 
 .link-label {
-    color: $color-main;
+    color: $color-primary;
 }
 
 
 .central-card {
-    background: #ffffff;
+    background: $color-gray;
     width: $central-card-width;
     height: auto;
     // position: absolute;
@@ -186,6 +219,7 @@ textarea.soft-input {
 .little-fill {
     height: 100%;
     width: 10px;
+    background: $color-primary;
 }
 
 .central-title {
@@ -254,76 +288,10 @@ textarea.soft-input {
 
 .soft-title {
     text-align: center;
-    color: $color-titles;
+    color: $color-white;
     font-size: 3rem;
     font-weight: normal;
     margin: 0;
-}
-
-.spinner-border {
-    color: $color-main;
-}
-
-.loading-container {
-    padding: 5px;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10px;
-
-    * {
-        margin-top: auto;
-        margin-bottom: auto;
-    }
-
-    h4 {
-        font-size: 1.2rem;
-        font-weight: bolder;
-        color: rgb(120, 120, 120);
-    }
-}
-
-.spinner {
-    width: 40px;
-    height: 40px;
-  
-    position: relative;
-}
-  
-.double-bounce1, .double-bounce2 {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-color: $color-main;
-    opacity: 0.6;
-    position: absolute;
-    top: 0;
-    left: 0;
-    
-    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
-    animation: sk-bounce 2.0s infinite ease-in-out;
-}
-  
-.double-bounce2 {
-    -webkit-animation-delay: -1.0s;
-    animation-delay: -1.0s;
-}
-  
-@-webkit-keyframes sk-bounce {
-    0%, 100% { -webkit-transform: scale(0.0) }
-    50% { -webkit-transform: scale(1.0) }
-}
-
-@keyframes sk-bounce {
-    0%, 100% { 
-        transform: scale(0.0);
-        -webkit-transform: scale(0.0);
-    } 50% { 
-        transform: scale(1.0);
-        -webkit-transform: scale(1.0);
-    }
 }
 
 .questions-container {
@@ -337,7 +305,7 @@ textarea.soft-input {
     width: 200px;
     border: none;
     border-radius: 6px;
-    background: $color-main;
+    background: $color-primary;
     color: white;
     cursor: pointer;
     opacity: 0.8;
@@ -370,12 +338,13 @@ button.remove-square-button {
     position: fixed;
     bottom: 0;
     height: 80px;
-    width: calc(100% - 270px);
-    background: $color-background;
-    border-top: 1px solid rgb(199, 199, 199);
-    -webkit-box-shadow: 0px -3px 5px -4px rgba(0,0,0,0.25);
-    -moz-box-shadow: 0px -3px 5px -4px rgba(0,0,0,0.25);
-    box-shadow: 0px -3px 5px -4px rgba(0,0,0,0.25);
+    width: calc(100% - 220px);
+    background: $color-gray;
+    border-top: 1px solid $color-gray;
+    border-radius: 10px 10px 0 0;
+    -webkit-box-shadow: 0px -3px 5px -4px rgba(0,0,0,0.45);
+    -moz-box-shadow: 0px -3px 5px -4px rgba(0,0,0,0.45);
+    box-shadow: 0px -3px 5px -4px rgba(0,0,0,0.45);
 
     display: flex;
     flex-direction: row;
@@ -383,6 +352,13 @@ button.remove-square-button {
     justify-content: center;
 
     gap: 10px;
+}
+
+.content-frame-with-actions {
+    height: 100%;
+    width: calc(100% - 40px);
+    padding: 20px;
+    overflow-y: scroll;
 }
 
 .content-frame-with-actions {
@@ -397,7 +373,7 @@ button.remove-square-button {
     width: 220px;
     color: white;
     font-size: 1.2rem;
-    background: $color-main;
+    background: $color-primary;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -432,10 +408,10 @@ button.remove-square-button {
 .secondary-button {
     height: 50px;
     width: 220px;
-    color: $color-main;
+    color: $color-primary;
     font-size: 1.2rem;
     background: $color-background;
-    border: 1px solid rgb(204, 204, 204);
+    border: 1px solid $color-soft-white;
     border-radius: 10px;
     cursor: pointer;
 

@@ -5,7 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ce24646065cc44afb8336fe76f3fbb41" Name="Diagram1">
-        <EntityTypeShape EntityType="FormsGeneratorDBModel.User" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FormsGeneratorDBModel.AnsweredQuestion" Width="1.5" PointX="7.5" PointY="7.5" />
+        <EntityTypeShape EntityType="FormsGeneratorDBModel.Choice" Width="1.5" PointX="7.5" PointY="0.75" />
+        <EntityTypeShape EntityType="FormsGeneratorDBModel.Form" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="FormsGeneratorDBModel.FormsAnswered" Width="1.5" PointX="8.25" PointY="4" />
+        <EntityTypeShape EntityType="FormsGeneratorDBModel.Question" Width="1.5" PointX="5.25" PointY="3.75" />
+        <EntityTypeShape EntityType="FormsGeneratorDBModel.QuestionType" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="FormsGeneratorDBModel.User" Width="1.5" PointX="0.75" PointY="4" />
+        <AssociationConnector Association="FormsGeneratorDBModel.FK__AnsweredQ__IdQue__0E6E26BF" />
+        <AssociationConnector Association="FormsGeneratorDBModel.FK__Choices__IdQuest__07C12930" />
+        <AssociationConnector Association="FormsGeneratorDBModel.FK__Forms__IdCreator__6FE99F9F" />
+        <AssociationConnector Association="FormsGeneratorDBModel.FK__FormsAnsw__IdFor__0B91BA14" />
+        <AssociationConnector Association="FormsGeneratorDBModel.FK__Questions__IdFor__02FC7413" />
+        <AssociationConnector Association="FormsGeneratorDBModel.FK__FormsAnsw__IdUse__0A9D95DB" />
+        <AssociationConnector Association="FormsGeneratorDBModel.FK__Questions__IdQue__03F0984C" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

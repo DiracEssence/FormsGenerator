@@ -24,8 +24,9 @@ export class CreateFormComponent implements OnInit {
 
   public disableSaveBtn: boolean = false;
   public disableClearBtn: boolean = false;
+  public savingForm: boolean = false;
 
-  constructor(private toastrService: ToastrService, private formsService: FormsService) { }
+  constructor(private toastrService: ToastrService, private formsService: FormsService, private router: Router) { }
 
   ngOnInit(): void {
     let questionTest1 = new Question();
@@ -105,12 +106,24 @@ export class CreateFormComponent implements OnInit {
     form.formDescription = this.formDescription;
     form.questions = this.questions;
 
+    this.disableSaveBtn = true;
+    this.disableClearBtn = true;
+    this.savingForm = true;
     this.formsService.CreateForm(form).subscribe(
       success => {
-
+        setTimeout(() => {
+          this.toastrService.success("Form has been successfully created!.");
+          this.disableSaveBtn = false;
+          this.disableClearBtn = false;
+          this.savingForm = false;
+          this.router.navigate(['YourForms']);
+        }, 1000);
       },
       error => {
-
+        this.toastrService.warning(error.error.Message);
+        this.disableSaveBtn = false;
+        this.disableClearBtn = false;
+        this.savingForm = false;
       }
     );
   }

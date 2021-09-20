@@ -57,5 +57,7 @@ namespace DotNETWebApi.Helpers
             return user;
         }
 
+        public bool UserExist(Guid idUser) => db.Users.Any(user => user.Id == idUser);
+
     }
 }

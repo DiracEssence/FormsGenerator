@@ -16,12 +16,12 @@ $size-navbar-icon: 65%;
     background: $color-background;
 
     .sidebar {
-        flex-basis: 270px;
+        flex-basis: 220px;
         height: 100%;
-        background: $color-background-gray;
+        background: $color-background;
         opacity: 0.8;
         //z-index: -1;
-        border-right: 1px solid rgb(199, 199, 199);
+        border-right: 1px solid $color-gray;
         padding: 15px;
         display: flex;
         flex-direction: column;
@@ -37,7 +37,7 @@ $size-navbar-icon: 65%;
             display: flex;
             flex-direction: row;
             gap: 10px;
-            background: $color-background;
+            background: $color-gray;
             cursor: pointer;
             //border: 1px solid gray;
             border-radius: 10px;
@@ -46,26 +46,26 @@ $size-navbar-icon: 65%;
             -webkit-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.15);
             -moz-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.15);
             box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.15);
-
+            
             transition: 0.2s ease-in-out;
-
+            
             &:hover {
-                background-color: $color-main;
+                background-color: $color-primary;
                 & * {
-                    color: white;
+                    color: $color-soft-white;
                 }
             }
-
+            
             & * {
                 transition: 0.2s ease-in-out;
-                margin-top: auto;
-                margin-bottom: auto;
+                margin: auto;
+                color: $color-soft-white;
             }
         }
         .sidebar-option.active {
-            background: $color-main;
+            background: $color-primary;
             & * {
-                color: white;
+                color: $color-soft-white;
             }
         }
     }
@@ -80,7 +80,7 @@ $size-navbar-icon: 65%;
 .navbar-container {
     height: 64px;
     width: 100%;
-    background-color: $color-main;
+    background-color: $color-gray;
     display: flex;
     flex-direction: row;
     text-align:center;
@@ -122,7 +122,7 @@ $size-navbar-icon: 65%;
     justify-content: center;
     gap: 15px;
     transition: 0.15s ease-in-out;
-    background: $color-main;
+    background: $color-primary;
     opacity: 0.8;
     position: relative;
     z-index: 2;

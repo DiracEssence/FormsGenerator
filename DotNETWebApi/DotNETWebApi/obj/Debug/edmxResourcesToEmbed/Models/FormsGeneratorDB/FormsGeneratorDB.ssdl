@@ -1,5 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="FormsGeneratorDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AnsweredQuestions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IdQuestion" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Answer" Type="varchar" MaxLength="2048" />
+    <Property Name="QuestionAnswered" Type="varchar" MaxLength="1024" />
+  </EntityType>
+  <EntityType Name="Choices">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IdQuestion" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ChoiceText" Type="varchar" MaxLength="512" Nullable="false" />
+    <Property Name="Order" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Forms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IdCreator" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="512" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FormsAnswered">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IdUser" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IdForm" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Finished" Type="bit" Nullable="false" />
+    <Property Name="AnswerDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Questions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IdForm" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="QuestionText" Type="varchar" MaxLength="1024" Nullable="false" />
+    <Property Name="IdQuestionType" Type="int" Nullable="false" />
+    <Property Name="Order" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QuestionTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="256" Nullable="false" />
+  </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="Id" />
@@ -10,7 +66,125 @@
     <Property Name="Password" Type="varbinary(max)" Nullable="false" />
     <Property Name="Salt" Type="varbinary(max)" Nullable="false" />
   </EntityType>
+  <Association Name="FK__AnsweredQ__IdQue__0E6E26BF">
+    <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
+    <End Role="AnsweredQuestions" Type="Self.AnsweredQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Questions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AnsweredQuestions">
+        <PropertyRef Name="IdQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Choices__IdQuest__07C12930">
+    <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
+    <End Role="Choices" Type="Self.Choices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Questions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Choices">
+        <PropertyRef Name="IdQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Forms__IdCreator__6FE99F9F">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Forms" Type="Self.Forms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Forms">
+        <PropertyRef Name="IdCreator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FormsAnsw__IdFor__0B91BA14">
+    <End Role="Forms" Type="Self.Forms" Multiplicity="1" />
+    <End Role="FormsAnswered" Type="Self.FormsAnswered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Forms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormsAnswered">
+        <PropertyRef Name="IdForm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FormsAnsw__IdUse__0A9D95DB">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="FormsAnswered" Type="Self.FormsAnswered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormsAnswered">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Questions__IdFor__02FC7413">
+    <End Role="Forms" Type="Self.Forms" Multiplicity="1" />
+    <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Forms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="IdForm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Questions__IdQue__03F0984C">
+    <End Role="QuestionTypes" Type="Self.QuestionTypes" Multiplicity="1" />
+    <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="IdQuestionType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="FormsGeneratorDBModelStoreContainer">
+    <EntitySet Name="AnsweredQuestions" EntityType="Self.AnsweredQuestions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Choices" EntityType="Self.Choices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Forms" EntityType="Self.Forms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FormsAnswered" EntityType="Self.FormsAnswered" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuestionTypes" EntityType="Self.QuestionTypes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__AnsweredQ__IdQue__0E6E26BF" Association="Self.FK__AnsweredQ__IdQue__0E6E26BF">
+      <End Role="Questions" EntitySet="Questions" />
+      <End Role="AnsweredQuestions" EntitySet="AnsweredQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Choices__IdQuest__07C12930" Association="Self.FK__Choices__IdQuest__07C12930">
+      <End Role="Questions" EntitySet="Questions" />
+      <End Role="Choices" EntitySet="Choices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Forms__IdCreator__6FE99F9F" Association="Self.FK__Forms__IdCreator__6FE99F9F">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Forms" EntitySet="Forms" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FormsAnsw__IdFor__0B91BA14" Association="Self.FK__FormsAnsw__IdFor__0B91BA14">
+      <End Role="Forms" EntitySet="Forms" />
+      <End Role="FormsAnswered" EntitySet="FormsAnswered" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FormsAnsw__IdUse__0A9D95DB" Association="Self.FK__FormsAnsw__IdUse__0A9D95DB">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="FormsAnswered" EntitySet="FormsAnswered" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Questions__IdFor__02FC7413" Association="Self.FK__Questions__IdFor__02FC7413">
+      <End Role="Forms" EntitySet="Forms" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Questions__IdQue__03F0984C" Association="Self.FK__Questions__IdQue__03F0984C">
+      <End Role="QuestionTypes" EntitySet="QuestionTypes" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

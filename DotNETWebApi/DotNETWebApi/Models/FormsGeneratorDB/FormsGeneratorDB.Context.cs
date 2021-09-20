@@ -25,6 +25,12 @@ namespace DotNETWebApi.Models.FormsGeneratorDB
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AnsweredQuestion> AnsweredQuestions { get; set; }
+        public virtual DbSet<Choice> Choices { get; set; }
+        public virtual DbSet<Form> Forms { get; set; }
+        public virtual DbSet<FormsAnswered> FormsAnswereds { get; set; }
+        public virtual DbSet<Question> Questions { get; set; }
+        public virtual DbSet<QuestionType> QuestionTypes { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

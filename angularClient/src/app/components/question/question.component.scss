@@ -6,39 +6,25 @@
     flex-direction: column;
     gap: 8px;
 
-    input.question-title {
-        font-size: 1.2rem;
-        color: $color-titles;
-        background: white;
-        width: auto;
-        padding: 5px;
-        border: 1px solid rgb(170, 170, 170);
-        border-radius: 8px;
-
-        &:focus, &:hover {
-            border-color: $color-main;
-        }
-    }
-
     input.question-choice {
         font-size: 1rem;
         font-weight: normal;
-        color: $color-titles;
-        border: 1px solid rgb(170, 170, 170);
+        color: $color-gray;
+        border: 1px solid $color-gray;
         background: $color-background;
         width: auto;
         min-width: 250px;
         padding: 5px;
-        border-radius: 8px;
+        border-radius: 4px;
 
         &:focus, &:hover {
-            border-color: $color-main;
+            border-color: $color-primary;
         }
     }
 
     label {
         font-size: 1.2rem;
-        color: $color-titles;
+        color: $color-gray;
     }
 
     .question-label-container {
@@ -54,7 +40,7 @@
         button.question-edit-button {
             height: 30px;
             width: 30px;
-            background-color: $color-main;
+            background-color: $color-primary;
             border: none;
             border-radius: 10px;
             position: relative;
@@ -68,7 +54,7 @@
                 height: auto;
                 padding: 10px;
                 border-radius: 10px;
-                background: $color-background;
+                background: $color-gray;
                 -webkit-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.15);
                 -moz-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.15);
                 box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.15);
@@ -84,12 +70,13 @@
 
                 h3 {
                     margin: 0;
-                    color: $color-main;
+                    color: $color-primary;
                 }
 
                 label {
                     font-size: 1rem;
                     font-weight: normal;
+                    color: $color-soft-white;
                 }
             }
 
@@ -115,7 +102,7 @@
         gap: 10px;
         padding: 10px;
         border-radius: 10px;
-        background: $color-background-gray;
+        background: $color-gray;
 
         .question-radio {
             display: flex;
@@ -125,6 +112,8 @@
             & * {
                 margin-top: auto;
                 margin-bottom: auto;
+                color: $color-soft-white;
+                font-size: 1rem;
             }
         }
     }
@@ -135,7 +124,7 @@ button.add-choice-button {
     width: 200px;
     border: none;
     border-radius: 6px;
-    background: $color-main;
+    background: $color-primary;
     color: white;
     cursor: pointer;
     opacity: 0.8;
