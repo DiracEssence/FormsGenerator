@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from "@angular/common/http";
-import { SessionService } from "./services/session.service";
 import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
@@ -16,9 +15,10 @@ import { JwtModule } from '@auth0/angular-jwt';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
     HttpClientModule,
-
+    
+    //TooltipModule.forRoot(),
+    ToastrModule.forRoot(),
     JwtModule.forRoot({
       config: {
         tokenGetter: getAuthToken,

@@ -4,8 +4,21 @@
     <div class="forms-preview">
         <div *ngFor="let form of forms" class="form-preview">
             <div class="form-preview-quick-info">
-                <h3>{{form.name}}</h3>
-                <h5>- {{form.questions.length}} questions</h5>
+                <div class="left-side">
+                    <h3 class="font-color-primary">{{form.name}}</h3>
+                    <h5 class="font-color-secondary">- {{form.questions.length}} questions</h5>
+                </div>
+                <div class="right-side">
+                    <button class="square-button bg-color-red">
+                        <i class='bx bxs-trash'></i>
+                    </button>
+                    <button class="square-button bg-color-primary">
+                        <i class='bx bxs-edit-alt'></i>
+                    </button>
+                    <button class="square-button bg-color-secondary">
+                        <i class='bx bx-show'></i>
+                    </button>
+                </div>
             </div>
             <hr>
             <div class="form-preview-description">

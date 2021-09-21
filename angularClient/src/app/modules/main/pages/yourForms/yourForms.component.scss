@@ -18,8 +18,21 @@
         .form-preview-quick-info {
             display: flex;
             flex-direction: row;
-            gap: 8px;
-            padding-left: 15px;
+            padding: 0 15px;
+
+            .left-side {
+                display: flex;
+                flex-direction: row;
+                gap: 8px;
+                width: 50%;
+            }
+            .right-side {
+                display: flex;
+                flex-direction: row-reverse;
+                gap: 8px;
+                width: 50%;
+                align-items: center;
+            }
         }
 
         .form-preview-description {

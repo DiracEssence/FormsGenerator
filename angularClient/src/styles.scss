@@ -51,6 +51,9 @@ div.full-screen-container {
 .bg-color-secondary {
     background: $color-secondary;
 }
+.bg-color-red {
+    background: $color-red;
+}
 
 .font-color-primary {
     color: $color-primary;
@@ -175,6 +178,33 @@ textarea.soft-input {
     color: $color-primary;
 }
 
+button.square-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    opacity: 0.8;
+    transition: 0.1s all ease;
+    
+    & > i {
+         font-size: 25px;
+        // // height: 30px;
+        // // width: 30px;
+        // position: relative;
+        // top: 50%;
+        // left: 50%;
+        // transform: translateX(-50%) translateY(-50%);
+        // text-align: center;
+        // vertical-align: middle;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+}
 
 .central-card {
     background: $color-gray;
