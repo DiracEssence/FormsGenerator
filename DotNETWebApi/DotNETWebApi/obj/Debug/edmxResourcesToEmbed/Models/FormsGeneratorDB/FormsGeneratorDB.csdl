@@ -8,31 +8,31 @@
     <EntitySet Name="Questions" EntityType="FormsGeneratorDBModel.Question" />
     <EntitySet Name="QuestionTypes" EntityType="FormsGeneratorDBModel.QuestionType" />
     <EntitySet Name="Users" EntityType="FormsGeneratorDBModel.User" />
-    <AssociationSet Name="FK__AnsweredQ__IdQue__0E6E26BF" Association="FormsGeneratorDBModel.FK__AnsweredQ__IdQue__0E6E26BF">
+    <AssociationSet Name="FK__AnsweredQ__IdQue__4AB81AF0" Association="FormsGeneratorDBModel.FK__AnsweredQ__IdQue__4AB81AF0">
       <End Role="Question" EntitySet="Questions" />
       <End Role="AnsweredQuestion" EntitySet="AnsweredQuestions" />
     </AssociationSet>
-    <AssociationSet Name="FK__Choices__IdQuest__07C12930" Association="FormsGeneratorDBModel.FK__Choices__IdQuest__07C12930">
+    <AssociationSet Name="FK__Choices__IdQuest__440B1D61" Association="FormsGeneratorDBModel.FK__Choices__IdQuest__440B1D61">
       <End Role="Question" EntitySet="Questions" />
       <End Role="Choice" EntitySet="Choices" />
     </AssociationSet>
-    <AssociationSet Name="FK__Forms__IdCreator__6FE99F9F" Association="FormsGeneratorDBModel.FK__Forms__IdCreator__6FE99F9F">
+    <AssociationSet Name="FK__Forms__IdCreator__3B75D760" Association="FormsGeneratorDBModel.FK__Forms__IdCreator__3B75D760">
       <End Role="User" EntitySet="Users" />
       <End Role="Form" EntitySet="Forms" />
     </AssociationSet>
-    <AssociationSet Name="FK__FormsAnsw__IdFor__0B91BA14" Association="FormsGeneratorDBModel.FK__FormsAnsw__IdFor__0B91BA14">
+    <AssociationSet Name="FK__FormsAnsw__IdFor__47DBAE45" Association="FormsGeneratorDBModel.FK__FormsAnsw__IdFor__47DBAE45">
       <End Role="Form" EntitySet="Forms" />
       <End Role="FormsAnswered" EntitySet="FormsAnswereds" />
     </AssociationSet>
-    <AssociationSet Name="FK__Questions__IdFor__02FC7413" Association="FormsGeneratorDBModel.FK__Questions__IdFor__02FC7413">
+    <AssociationSet Name="FK__Questions__IdFor__403A8C7D" Association="FormsGeneratorDBModel.FK__Questions__IdFor__403A8C7D">
       <End Role="Form" EntitySet="Forms" />
       <End Role="Question" EntitySet="Questions" />
     </AssociationSet>
-    <AssociationSet Name="FK__FormsAnsw__IdUse__0A9D95DB" Association="FormsGeneratorDBModel.FK__FormsAnsw__IdUse__0A9D95DB">
+    <AssociationSet Name="FK__FormsAnsw__IdUse__46E78A0C" Association="FormsGeneratorDBModel.FK__FormsAnsw__IdUse__46E78A0C">
       <End Role="User" EntitySet="Users" />
       <End Role="FormsAnswered" EntitySet="FormsAnswereds" />
     </AssociationSet>
-    <AssociationSet Name="FK__Questions__IdQue__03F0984C" Association="FormsGeneratorDBModel.FK__Questions__IdQue__03F0984C">
+    <AssociationSet Name="FK__Questions__IdQue__412EB0B6" Association="FormsGeneratorDBModel.FK__Questions__IdQue__412EB0B6">
       <End Role="QuestionType" EntitySet="QuestionTypes" />
       <End Role="Question" EntitySet="Questions" />
     </AssociationSet>
@@ -45,7 +45,7 @@
     <Property Name="IdQuestion" Type="Guid" Nullable="false" />
     <Property Name="Answer" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
     <Property Name="QuestionAnswered" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Question" Relationship="FormsGeneratorDBModel.FK__AnsweredQ__IdQue__0E6E26BF" FromRole="AnsweredQuestion" ToRole="Question" />
+    <NavigationProperty Name="Question" Relationship="FormsGeneratorDBModel.FK__AnsweredQ__IdQue__4AB81AF0" FromRole="AnsweredQuestion" ToRole="Question" />
   </EntityType>
   <EntityType Name="Choice">
     <Key>
@@ -55,7 +55,7 @@
     <Property Name="IdQuestion" Type="Guid" Nullable="false" />
     <Property Name="ChoiceText" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="false" />
     <Property Name="Order" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Question" Relationship="FormsGeneratorDBModel.FK__Choices__IdQuest__07C12930" FromRole="Choice" ToRole="Question" />
+    <NavigationProperty Name="Question" Relationship="FormsGeneratorDBModel.FK__Choices__IdQuest__440B1D61" FromRole="Choice" ToRole="Question" />
   </EntityType>
   <EntityType Name="Form">
     <Key>
@@ -66,9 +66,9 @@
     <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
     <Property Name="Description" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
     <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="User" Relationship="FormsGeneratorDBModel.FK__Forms__IdCreator__6FE99F9F" FromRole="Form" ToRole="User" />
-    <NavigationProperty Name="FormsAnswereds" Relationship="FormsGeneratorDBModel.FK__FormsAnsw__IdFor__0B91BA14" FromRole="Form" ToRole="FormsAnswered" />
-    <NavigationProperty Name="Questions" Relationship="FormsGeneratorDBModel.FK__Questions__IdFor__02FC7413" FromRole="Form" ToRole="Question" />
+    <NavigationProperty Name="User" Relationship="FormsGeneratorDBModel.FK__Forms__IdCreator__3B75D760" FromRole="Form" ToRole="User" />
+    <NavigationProperty Name="FormsAnswereds" Relationship="FormsGeneratorDBModel.FK__FormsAnsw__IdFor__47DBAE45" FromRole="Form" ToRole="FormsAnswered" />
+    <NavigationProperty Name="Questions" Relationship="FormsGeneratorDBModel.FK__Questions__IdFor__403A8C7D" FromRole="Form" ToRole="Question" />
   </EntityType>
   <EntityType Name="FormsAnswered">
     <Key>
@@ -79,8 +79,8 @@
     <Property Name="IdForm" Type="Guid" Nullable="false" />
     <Property Name="Finished" Type="Boolean" Nullable="false" />
     <Property Name="AnswerDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Form" Relationship="FormsGeneratorDBModel.FK__FormsAnsw__IdFor__0B91BA14" FromRole="FormsAnswered" ToRole="Form" />
-    <NavigationProperty Name="User" Relationship="FormsGeneratorDBModel.FK__FormsAnsw__IdUse__0A9D95DB" FromRole="FormsAnswered" ToRole="User" />
+    <NavigationProperty Name="Form" Relationship="FormsGeneratorDBModel.FK__FormsAnsw__IdFor__47DBAE45" FromRole="FormsAnswered" ToRole="Form" />
+    <NavigationProperty Name="User" Relationship="FormsGeneratorDBModel.FK__FormsAnsw__IdUse__46E78A0C" FromRole="FormsAnswered" ToRole="User" />
   </EntityType>
   <EntityType Name="Question">
     <Key>
@@ -91,10 +91,10 @@
     <Property Name="QuestionText" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="false" />
     <Property Name="IdQuestionType" Type="Int32" Nullable="false" />
     <Property Name="Order" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="AnsweredQuestions" Relationship="FormsGeneratorDBModel.FK__AnsweredQ__IdQue__0E6E26BF" FromRole="Question" ToRole="AnsweredQuestion" />
-    <NavigationProperty Name="Choices" Relationship="FormsGeneratorDBModel.FK__Choices__IdQuest__07C12930" FromRole="Question" ToRole="Choice" />
-    <NavigationProperty Name="Form" Relationship="FormsGeneratorDBModel.FK__Questions__IdFor__02FC7413" FromRole="Question" ToRole="Form" />
-    <NavigationProperty Name="QuestionType" Relationship="FormsGeneratorDBModel.FK__Questions__IdQue__03F0984C" FromRole="Question" ToRole="QuestionType" />
+    <NavigationProperty Name="AnsweredQuestions" Relationship="FormsGeneratorDBModel.FK__AnsweredQ__IdQue__4AB81AF0" FromRole="Question" ToRole="AnsweredQuestion" />
+    <NavigationProperty Name="Choices" Relationship="FormsGeneratorDBModel.FK__Choices__IdQuest__440B1D61" FromRole="Question" ToRole="Choice" />
+    <NavigationProperty Name="Form" Relationship="FormsGeneratorDBModel.FK__Questions__IdFor__403A8C7D" FromRole="Question" ToRole="Form" />
+    <NavigationProperty Name="QuestionType" Relationship="FormsGeneratorDBModel.FK__Questions__IdQue__412EB0B6" FromRole="Question" ToRole="QuestionType" />
   </EntityType>
   <EntityType Name="QuestionType">
     <Key>
@@ -103,7 +103,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
     <Property Name="Description" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Questions" Relationship="FormsGeneratorDBModel.FK__Questions__IdQue__03F0984C" FromRole="QuestionType" ToRole="Question" />
+    <NavigationProperty Name="Questions" Relationship="FormsGeneratorDBModel.FK__Questions__IdQue__412EB0B6" FromRole="QuestionType" ToRole="Question" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -114,10 +114,10 @@
     <Property Name="Email" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
     <Property Name="Password" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
     <Property Name="Salt" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-    <NavigationProperty Name="Forms" Relationship="FormsGeneratorDBModel.FK__Forms__IdCreator__6FE99F9F" FromRole="User" ToRole="Form" />
-    <NavigationProperty Name="FormsAnswereds" Relationship="FormsGeneratorDBModel.FK__FormsAnsw__IdUse__0A9D95DB" FromRole="User" ToRole="FormsAnswered" />
+    <NavigationProperty Name="Forms" Relationship="FormsGeneratorDBModel.FK__Forms__IdCreator__3B75D760" FromRole="User" ToRole="Form" />
+    <NavigationProperty Name="FormsAnswereds" Relationship="FormsGeneratorDBModel.FK__FormsAnsw__IdUse__46E78A0C" FromRole="User" ToRole="FormsAnswered" />
   </EntityType>
-  <Association Name="FK__AnsweredQ__IdQue__0E6E26BF">
+  <Association Name="FK__AnsweredQ__IdQue__4AB81AF0">
     <End Type="FormsGeneratorDBModel.Question" Role="Question" Multiplicity="1" />
     <End Type="FormsGeneratorDBModel.AnsweredQuestion" Role="AnsweredQuestion" Multiplicity="*" />
     <ReferentialConstraint>
@@ -129,7 +129,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Choices__IdQuest__07C12930">
+  <Association Name="FK__Choices__IdQuest__440B1D61">
     <End Type="FormsGeneratorDBModel.Question" Role="Question" Multiplicity="1" />
     <End Type="FormsGeneratorDBModel.Choice" Role="Choice" Multiplicity="*" />
     <ReferentialConstraint>
@@ -141,7 +141,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Forms__IdCreator__6FE99F9F">
+  <Association Name="FK__Forms__IdCreator__3B75D760">
     <End Type="FormsGeneratorDBModel.User" Role="User" Multiplicity="1" />
     <End Type="FormsGeneratorDBModel.Form" Role="Form" Multiplicity="*" />
     <ReferentialConstraint>
@@ -153,7 +153,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__FormsAnsw__IdFor__0B91BA14">
+  <Association Name="FK__FormsAnsw__IdFor__47DBAE45">
     <End Type="FormsGeneratorDBModel.Form" Role="Form" Multiplicity="1" />
     <End Type="FormsGeneratorDBModel.FormsAnswered" Role="FormsAnswered" Multiplicity="*" />
     <ReferentialConstraint>
@@ -165,7 +165,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Questions__IdFor__02FC7413">
+  <Association Name="FK__Questions__IdFor__403A8C7D">
     <End Type="FormsGeneratorDBModel.Form" Role="Form" Multiplicity="1" />
     <End Type="FormsGeneratorDBModel.Question" Role="Question" Multiplicity="*" />
     <ReferentialConstraint>
@@ -177,7 +177,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__FormsAnsw__IdUse__0A9D95DB">
+  <Association Name="FK__FormsAnsw__IdUse__46E78A0C">
     <End Type="FormsGeneratorDBModel.User" Role="User" Multiplicity="1" />
     <End Type="FormsGeneratorDBModel.FormsAnswered" Role="FormsAnswered" Multiplicity="*" />
     <ReferentialConstraint>
@@ -189,7 +189,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Questions__IdQue__03F0984C">
+  <Association Name="FK__Questions__IdQue__412EB0B6">
     <End Type="FormsGeneratorDBModel.QuestionType" Role="QuestionType" Multiplicity="1" />
     <End Type="FormsGeneratorDBModel.Question" Role="Question" Multiplicity="*" />
     <ReferentialConstraint>

@@ -11,7 +11,7 @@ import { slideInAnimation } from './animations/animations';
   ]
 })
 export class AppComponent {
-  title = 'surveys';
+  title = 'FormsGenerator';
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;

@@ -2,3 +2,5 @@
 *.pdb
 *.manifest
 *.cache
+/DotNETWebApi/bin
+/DotNETWebApi/obj
