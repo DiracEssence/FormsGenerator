@@ -1,4 +1,6 @@
 # FormsGenerator
-Angular web app to generate forms dinamically
+Web project to generate forms dinamically.
 
-Project in progress, so is not deployed yet, soon I'm going to publish it, maybe on github websites.
+The stack of tecnology used in this project is Angular 11 for the frontend and ASP.NET Framework for the API or backend.
+
+Progress is published in: http://diracessence-002-site1.itempurl.com/
